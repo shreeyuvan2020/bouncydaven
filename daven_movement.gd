@@ -2,11 +2,23 @@ extends CharacterBody2D
 
 @onready var sprite: Sprite2D = $Sprite2D
 
-func _physics_process(delta):
-	var input_direction = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
-	velocity = input_direction * 400
+@export var speed: float = 300.0
+var direction: Vector2 = Vector2.ZERO
+
+func _process(delta: float) -> void:
+	# Update the stored direction whenever an arrow key is pressed
+	if Input.is_action_just_pressed("ui_right"):
+		direction = Vector2.RIGHT
+	elif Input.is_action_just_pressed("ui_left"):
+		direction = Vector2.LEFT
+	elif Input.is_action_just_pressed("ui_up"):
+		direction = Vector2.UP
+	elif Input.is_action_just_pressed("ui_down"):
+		direction = Vector2.DOWN
+
+	# Continuously move in the stored direction every frame
+	position += direction * speed * delta
 	
-	if velocity.length() > 0:
-		sprite.rotation += 10 * delta
+	sprite.rotation += 10 * delta
 		
 	move_and_slide()
