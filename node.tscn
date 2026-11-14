@@ -1,0 +1,120 @@
+[gd_scene format=3 uid="uid://c0d5ph6mx8xm3"]
+
+[ext_resource type="Script" uid="uid://c0f568q56gbvr" path="res://daven_movement.gd" id="1_l6pdb"]
+[ext_resource type="Texture2D" uid="uid://csujbnm0gmyym" path="res://daven.png" id="2_r657h"]
+[ext_resource type="Texture2D" uid="uid://bqy5cp64as7gl" path="res://davenmeow.png" id="3_f0urt"]
+[ext_resource type="Texture2D" uid="uid://bq21bkixh3xw6" path="res://daven1.png" id="4_jfkdj"]
+[ext_resource type="Texture2D" uid="uid://bo4erw3l6jbii" path="res://daven2.png" id="5_wt6go"]
+[ext_resource type="Texture2D" uid="uid://cfkbf1hdjvhwx" path="res://daven3.png" id="6_436f3"]
+[ext_resource type="Texture2D" uid="uid://bfqqdhli2ko5j" path="res://daven4.png" id="7_bcos8"]
+[ext_resource type="Texture2D" uid="uid://b4rk0ane18dkq" path="res://bouncy.png" id="8_cmsyx"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6c6ky"]
+size = Vector2(50, 41.5)
+
+[sub_resource type="Animation" id="Animation_feppd"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("2_r657h")]
+}
+
+[sub_resource type="Animation" id="Animation_aeaoo"]
+resource_name = "daven_smush_horizontal"
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("3_f0urt"), ExtResource("4_jfkdj"), ExtResource("5_wt6go"), ExtResource("6_436f3"), ExtResource("7_bcos8")]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_sps8e"]
+_data = {
+&"RESET": SubResource("Animation_feppd"),
+&"daven_smush_horizontal": SubResource("Animation_aeaoo")
+}
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_bnlop"]
+texture = ExtResource("8_cmsyx")
+texture_region_size = Vector2i(64, 64)
+0:0/animation_columns = 29
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+5:0/0 = 0
+6:0/0 = 0
+7:0/0 = 0
+8:0/0 = 0
+9:0/0 = 0
+10:0/0 = 0
+11:0/0 = 0
+12:0/0 = 0
+13:0/0 = 0
+14:0/0 = 0
+15:0/0 = 0
+16:0/0 = 0
+17:0/0 = 0
+18:0/0 = 0
+19:0/0 = 0
+20:0/0 = 0
+21:0/0 = 0
+22:0/0 = 0
+23:0/0 = 0
+24:0/0 = 0
+25:0/0 = 0
+26:0/0 = 0
+27:0/0 = 0
+28:0/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_21vjd"]
+tile_size = Vector2i(64, 64)
+sources/4 = SubResource("TileSetAtlasSource_bnlop")
+
+[sub_resource type="Animation" id="Animation_oaeeq"]
+resource_name = "wall_bounce"
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ey15c"]
+_data = {
+&"wall_bounce": SubResource("Animation_oaeeq")
+}
+
+[node name="Node" type="Node" unique_id=214869745]
+
+[node name="Node2D" type="Node2D" parent="." unique_id=167305889]
+position = Vector2(4, 6)
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="Node2D" unique_id=1610242081]
+script = ExtResource("1_l6pdb")
+
+[node name="Sprite2D" type="Sprite2D" parent="Node2D/CharacterBody2D" unique_id=1460881503]
+texture = ExtResource("2_r657h")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/CharacterBody2D" unique_id=1079528961]
+position = Vector2(-4, -6)
+shape = SubResource("RectangleShape2D_6c6ky")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Node2D/CharacterBody2D" unique_id=465946302]
+libraries/ = SubResource("AnimationLibrary_sps8e")
+
+[node name="TileMapLayer" type="TileMapLayer" parent="Node2D" unique_id=614246636]
+tile_set = SubResource("TileSet_21vjd")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Node2D/TileMapLayer" unique_id=862432590]
+libraries/ = SubResource("AnimationLibrary_ey15c")
