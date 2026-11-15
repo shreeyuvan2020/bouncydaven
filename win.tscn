@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://b8sp6fye4u80t"]
+
+[ext_resource type="Texture2D" uid="uid://iewoofw73ssx" path="res://winstuff.png" id="1_wao2c"]
+
+[node name="Node2D" type="Node2D" unique_id=1260253853]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=2008015551]
+z_index = 2
+position = Vector2(565, 277)
+scale = Vector2(1.8810718, 1.6059701)
+texture = ExtResource("1_wao2c")
