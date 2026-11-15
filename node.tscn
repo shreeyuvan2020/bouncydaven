@@ -86,17 +86,19 @@ radius = 14.142136
 [node name="Node2D" type="Node2D" parent="." unique_id=167305889]
 position = Vector2(4, 6)
 
-[node name="CharacterBody2D" type="CharacterBody2D" parent="Node2D" unique_id=1610242081]
+[node name="Daven" type="CharacterBody2D" parent="Node2D" unique_id=1610242081]
 script = ExtResource("1_l6pdb")
 
-[node name="Sprite2D" type="Sprite2D" parent="Node2D/CharacterBody2D" unique_id=1460881503]
+[node name="Sprite2D" type="Sprite2D" parent="Node2D/Daven" unique_id=1460881503]
 texture = ExtResource("2_l6pdb")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/CharacterBody2D" unique_id=1079528961]
+[node name="PickupArea" type="Area2D" parent="Node2D/Daven" unique_id=1516340577]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/Daven/PickupArea" unique_id=1079528961]
 position = Vector2(-5, -3)
 shape = SubResource("RectangleShape2D_6c6ky")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Node2D/CharacterBody2D" unique_id=465946302]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Node2D/Daven" unique_id=465946302]
 libraries/ = SubResource("AnimationLibrary_sps8e")
 
 [node name="TileMapLayer" type="TileMapLayer" parent="Node2D" unique_id=614246636]
@@ -138,5 +140,6 @@ texture = ExtResource("11_wt6go")
 position = Vector2(4, -1)
 shape = SubResource("CircleShape2D_6o8cr")
 
-[connection signal="area_entered" from="SpeedPckp" to="Node2D/CharacterBody2D" method="_on_speed_pckp_area_entered"]
-[connection signal="area_entered" from="SpikePckp" to="Node2D/CharacterBody2D" method="_on_spike_pckp_area_entered"]
+[connection signal="area_entered" from="Node2D/Daven/PickupArea" to="Node2D/Daven" method="_on_pickup_area_area_entered"]
+[connection signal="area_entered" from="SpeedPckp" to="Node2D/Daven" method="_on_speed_pckp_area_entered"]
+[connection signal="area_entered" from="SpikePckp" to="Node2D/Daven" method="_on_spike_pckp_area_entered"]
