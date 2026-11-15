@@ -11,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://chvh06tgvqs87" path="res://FlareGhoul.png" id="9_r657h"]
 [ext_resource type="Texture2D" uid="uid://bdhrpn3x878an" path="res://SpeedPwp.png" id="10_jfkdj"]
 [ext_resource type="Texture2D" uid="uid://jx6y03j4jsdk" path="res://SpikePowerup.png" id="11_wt6go"]
+[ext_resource type="Texture2D" uid="uid://bg3jjpmsharey" path="res://Sprite-0001.png" id="12_wt6go"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6c6ky"]
 size = Vector2(24, 24)
@@ -104,11 +105,12 @@ libraries/ = SubResource("AnimationLibrary_sps8e")
 [node name="CanvasLayer" type="CanvasLayer" parent="Node2D/Daven" unique_id=791974400]
 
 [node name="HealthBar" type="Label" parent="Node2D/Daven/CanvasLayer" unique_id=1053065823]
-offset_left = 1052.0
+offset_left = 1027.0
 offset_top = 9.0
-offset_right = 1140.0
-offset_bottom = 58.0
-text = "Health: 100
+offset_right = 1115.0
+offset_bottom = 84.0
+text = "Health:
+
 "
 
 [node name="TileMapLayer" type="TileMapLayer" parent="Node2D" unique_id=614246636]
@@ -149,6 +151,18 @@ texture = ExtResource("11_wt6go")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SpikePckp" unique_id=1781395365 groups=["SpikePwp"]]
 position = Vector2(4, -1)
 shape = SubResource("CircleShape2D_6o8cr")
+
+[node name="Sprite0001" type="Sprite2D" parent="." unique_id=293906328]
+position = Vector2(1123, 25)
+texture = ExtResource("12_wt6go")
+
+[node name="Sprite0002" type="Sprite2D" parent="." unique_id=54669044]
+position = Vector2(1103, 25)
+texture = ExtResource("12_wt6go")
+
+[node name="Sprite0003" type="Sprite2D" parent="." unique_id=355320822]
+position = Vector2(1144, 25)
+texture = ExtResource("12_wt6go")
 
 [connection signal="area_entered" from="Node2D/Daven/PickupArea" to="Node2D/Daven" method="_on_pickup_area_area_entered"]
 [connection signal="area_entered" from="FG_hitbox" to="Node2D/Daven" method="_on_fg_hitbox_area_entered"]
