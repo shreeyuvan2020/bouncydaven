@@ -1,16 +1,16 @@
-[gd_scene format=3 uid="uid://c0d5ph6mx8xm3"]
+[gd_scene format=4 uid="uid://c0d5ph6mx8xm3"]
 
 [ext_resource type="Script" uid="uid://c0f568q56gbvr" path="res://daven_movement.gd" id="1_l6pdb"]
-[ext_resource type="Texture2D" uid="uid://csujbnm0gmyym" path="res://daven.png" id="2_r657h"]
+[ext_resource type="Texture2D" uid="uid://yrv5ihda1tor" path="res://daven0.png" id="2_l6pdb"]
 [ext_resource type="Texture2D" uid="uid://bqy5cp64as7gl" path="res://davenmeow.png" id="3_f0urt"]
 [ext_resource type="Texture2D" uid="uid://bq21bkixh3xw6" path="res://daven1.png" id="4_jfkdj"]
 [ext_resource type="Texture2D" uid="uid://bo4erw3l6jbii" path="res://daven2.png" id="5_wt6go"]
 [ext_resource type="Texture2D" uid="uid://cfkbf1hdjvhwx" path="res://daven3.png" id="6_436f3"]
 [ext_resource type="Texture2D" uid="uid://bfqqdhli2ko5j" path="res://daven4.png" id="7_bcos8"]
-[ext_resource type="Texture2D" uid="uid://b4rk0ane18dkq" path="res://bouncy.png" id="8_cmsyx"]
+[ext_resource type="Texture2D" uid="uid://bumrp4eafo1ed" path="res://boing0.png" id="8_l6pdb"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6c6ky"]
-size = Vector2(50, 41.5)
+size = Vector2(50, 43.5)
 
 [sub_resource type="Animation" id="Animation_feppd"]
 length = 0.001
@@ -24,7 +24,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("2_r657h")]
+"values": [ExtResource("2_l6pdb")]
 }
 
 [sub_resource type="Animation" id="Animation_aeaoo"]
@@ -49,43 +49,17 @@ _data = {
 &"daven_smush_horizontal": SubResource("Animation_aeaoo")
 }
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_bnlop"]
-texture = ExtResource("8_cmsyx")
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_r657h"]
+texture = ExtResource("8_l6pdb")
 texture_region_size = Vector2i(64, 64)
-0:0/animation_columns = 29
 0:0/0 = 0
 1:0/0 = 0
-2:0/0 = 0
-3:0/0 = 0
-4:0/0 = 0
-5:0/0 = 0
-6:0/0 = 0
-7:0/0 = 0
-8:0/0 = 0
-9:0/0 = 0
-10:0/0 = 0
-11:0/0 = 0
-12:0/0 = 0
-13:0/0 = 0
-14:0/0 = 0
-15:0/0 = 0
-16:0/0 = 0
-17:0/0 = 0
-18:0/0 = 0
-19:0/0 = 0
-20:0/0 = 0
-21:0/0 = 0
-22:0/0 = 0
-23:0/0 = 0
-24:0/0 = 0
-25:0/0 = 0
-26:0/0 = 0
-27:0/0 = 0
-28:0/0 = 0
+1:1/0 = 0
+0:1/0 = 0
 
 [sub_resource type="TileSet" id="TileSet_21vjd"]
 tile_size = Vector2i(64, 64)
-sources/4 = SubResource("TileSetAtlasSource_bnlop")
+sources/4 = SubResource("TileSetAtlasSource_r657h")
 
 [sub_resource type="Animation" id="Animation_oaeeq"]
 resource_name = "wall_bounce"
@@ -104,17 +78,20 @@ position = Vector2(4, 6)
 script = ExtResource("1_l6pdb")
 
 [node name="Sprite2D" type="Sprite2D" parent="Node2D/CharacterBody2D" unique_id=1460881503]
-texture = ExtResource("2_r657h")
+texture = ExtResource("2_l6pdb")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/CharacterBody2D" unique_id=1079528961]
-position = Vector2(-4, -6)
+position = Vector2(-4, -5.75)
 shape = SubResource("RectangleShape2D_6c6ky")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Node2D/CharacterBody2D" unique_id=465946302]
 libraries/ = SubResource("AnimationLibrary_sps8e")
 
 [node name="TileMapLayer" type="TileMapLayer" parent="Node2D" unique_id=614246636]
+tile_map_data = PackedByteArray("AAD+////AQAAAAAAAAD+/wAAAQAAAAAAAAD5////BAAAAAAAAAD5/wAABAAAAAEAAAD6////BAABAAAAAAD6/wAABAABAAEAAAD5/wEABAAAAAEAAAD6/wEABAABAAEAAAA=")
 tile_set = SubResource("TileSet_21vjd")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Node2D/TileMapLayer" unique_id=862432590]
 libraries/ = SubResource("AnimationLibrary_ey15c")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/TileMapLayer" unique_id=1501635378]
