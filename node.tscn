@@ -8,9 +8,12 @@
 [ext_resource type="Texture2D" uid="uid://cfkbf1hdjvhwx" path="res://daven3.png" id="6_436f3"]
 [ext_resource type="Texture2D" uid="uid://bfqqdhli2ko5j" path="res://daven4.png" id="7_bcos8"]
 [ext_resource type="Texture2D" uid="uid://bumrp4eafo1ed" path="res://boing0.png" id="8_l6pdb"]
+[ext_resource type="Texture2D" uid="uid://chvh06tgvqs87" path="res://FlareGhoul.png" id="9_r657h"]
+[ext_resource type="Texture2D" uid="uid://bdhrpn3x878an" path="res://SpeedPwp.png" id="10_jfkdj"]
+[ext_resource type="Texture2D" uid="uid://jx6y03j4jsdk" path="res://SpikePowerup.png" id="11_wt6go"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6c6ky"]
-size = Vector2(50, 43.5)
+size = Vector2(24, 24)
 
 [sub_resource type="Animation" id="Animation_feppd"]
 length = 0.001
@@ -69,6 +72,15 @@ _data = {
 &"wall_bounce": SubResource("Animation_oaeeq")
 }
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_wb86m"]
+radius = 18.027756
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wb86m"]
+size = Vector2(34, 20)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_6o8cr"]
+radius = 14.142136
+
 [node name="Node" type="Node" unique_id=214869745]
 
 [node name="Node2D" type="Node2D" parent="." unique_id=167305889]
@@ -76,12 +88,13 @@ position = Vector2(4, 6)
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="Node2D" unique_id=1610242081]
 script = ExtResource("1_l6pdb")
+speed = null
 
 [node name="Sprite2D" type="Sprite2D" parent="Node2D/CharacterBody2D" unique_id=1460881503]
 texture = ExtResource("2_l6pdb")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/CharacterBody2D" unique_id=1079528961]
-position = Vector2(-4, -5.75)
+position = Vector2(-5, -3)
 shape = SubResource("RectangleShape2D_6c6ky")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Node2D/CharacterBody2D" unique_id=465946302]
@@ -95,3 +108,33 @@ tile_set = SubResource("TileSet_21vjd")
 libraries/ = SubResource("AnimationLibrary_ey15c")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/TileMapLayer" unique_id=1501635378]
+
+[node name="FG_hitbox" type="Area2D" parent="." unique_id=1894901569]
+position = Vector2(246, 265)
+
+[node name="FlareGhoul" type="Sprite2D" parent="FG_hitbox" unique_id=741381312]
+texture = ExtResource("9_r657h")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FG_hitbox" unique_id=752714640]
+position = Vector2(-2, -3)
+shape = SubResource("CircleShape2D_wb86m")
+
+[node name="SpeedPckp" type="Area2D" parent="." unique_id=1541992840]
+position = Vector2(72, 368)
+
+[node name="SpeedPwp" type="Sprite2D" parent="SpeedPckp" unique_id=1158961216]
+texture = ExtResource("10_jfkdj")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SpeedPckp" unique_id=584049960]
+position = Vector2(-7, 0)
+shape = SubResource("RectangleShape2D_wb86m")
+
+[node name="SpikePckp" type="Area2D" parent="." unique_id=420967849]
+position = Vector2(305, 156)
+
+[node name="SpikePowerup" type="Sprite2D" parent="SpikePckp" unique_id=1417189710]
+texture = ExtResource("11_wt6go")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SpikePckp" unique_id=1781395365]
+position = Vector2(4, -1)
+shape = SubResource("CircleShape2D_6o8cr")
