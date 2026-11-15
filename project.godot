@@ -29,6 +29,9 @@ import/blender/enabled=false
 SpeedPwp=""
 SpikePwp=""
 FlareGhoulHit=""
+"Life 1"=""
+"Life 2"=""
+"Life 3"=""
 
 [physics]
 

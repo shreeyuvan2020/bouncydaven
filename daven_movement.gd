@@ -26,6 +26,7 @@ func _process(delta: float) -> void:
 	sprite.rotation += 10 * delta
 		
 	move_and_slide()
+	
 
 func _on_pickup_area_area_entered(area: Area2D) -> void:
 	if daven_health == 0:
