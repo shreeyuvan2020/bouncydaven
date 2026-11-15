@@ -114,8 +114,6 @@ position = Vector2(329, 0)
 tile_map_data = PackedByteArray("AAD+////AQAAAAAAAAD+/wAAAQAAAAAAAAD5////BAAAAAAAAAD5/wAABAAAAAAAAAD6////BAABAAAAAAD6/wAABAABAAAAAAD5/wEABAAAAAAAAAD6/wEABAABAAAAAAD5//7/BAAAAAAAAAD6//7/BAABAAAAAAD5/wIABAAAAAAAAAD6/wIABAABAAAAAAD5//3/BAAAAAAAAAD6//3/BAABAAAAAAABAP//BAAAAAAAAAACAP//BAABAAAAAAABAP7/BAAAAAAAAAACAP7/BAABAAAAAAABAAAABAAAAAAAAAACAAAABAABAAAAAAABAAEABAAAAAAAAAACAAEABAABAAAAAAABAAIABAAAAAAAAAACAAIABAABAAAAAAABAP3/BAAAAAAAAAACAP3/BAABAAAAAAD6/wMABAABAAAAAAD8////BAABAAAAAAA=")
 tile_set = SubResource("TileSet_21vjd")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/TileMapLayer" unique_id=1501635378]
-
 [node name="FG_hitbox" type="Area2D" parent="." unique_id=1894901569 groups=["FlareGhoulHit"]]
 position = Vector2(302, 453)
 
@@ -147,6 +145,7 @@ position = Vector2(4, -1)
 shape = SubResource("CircleShape2D_6o8cr")
 
 [connection signal="area_entered" from="Node2D/Daven/PickupArea" to="Node2D/Daven" method="_on_pickup_area_area_entered"]
+[connection signal="body_entered" from="Node2D/Daven/PickupArea" to="Node2D/Daven" method="_on_pickup_area_body_entered"]
 [connection signal="area_entered" from="FG_hitbox" to="Node2D/Daven" method="_on_fg_hitbox_area_entered"]
 [connection signal="area_entered" from="SpeedPckp" to="Node2D/Daven" method="_on_speed_pckp_area_entered"]
 [connection signal="area_entered" from="SpikePckp" to="Node2D/Daven" method="_on_spike_pckp_area_entered"]
