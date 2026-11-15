@@ -28,6 +28,7 @@ import/blender/enabled=false
 
 SpeedPwp=""
 SpikePwp=""
+FlareGhoulHit=""
 
 [physics]
 

@@ -101,6 +101,16 @@ shape = SubResource("RectangleShape2D_6c6ky")
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Node2D/Daven" unique_id=465946302]
 libraries/ = SubResource("AnimationLibrary_sps8e")
 
+[node name="CanvasLayer" type="CanvasLayer" parent="Node2D/Daven" unique_id=791974400]
+
+[node name="HealthBar" type="Label" parent="Node2D/Daven/CanvasLayer" unique_id=1053065823]
+offset_left = 1052.0
+offset_top = 9.0
+offset_right = 1140.0
+offset_bottom = 58.0
+text = "Health: 100
+"
+
 [node name="TileMapLayer" type="TileMapLayer" parent="Node2D" unique_id=614246636]
 tile_map_data = PackedByteArray("AAD+////AQAAAAAAAAD+/wAAAQAAAAAAAAD5////BAAAAAAAAAD5/wAABAAAAAEAAAD6////BAABAAAAAAD6/wAABAABAAEAAAD5/wEABAAAAAEAAAD6/wEABAABAAEAAAA=")
 tile_set = SubResource("TileSet_21vjd")
@@ -110,13 +120,13 @@ libraries/ = SubResource("AnimationLibrary_ey15c")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/TileMapLayer" unique_id=1501635378]
 
-[node name="FG_hitbox" type="Area2D" parent="." unique_id=1894901569]
+[node name="FG_hitbox" type="Area2D" parent="." unique_id=1894901569 groups=["FlareGhoulHit"]]
 position = Vector2(246, 265)
 
-[node name="FlareGhoul" type="Sprite2D" parent="FG_hitbox" unique_id=741381312]
+[node name="FlareGhoul" type="Sprite2D" parent="FG_hitbox" unique_id=741381312 groups=["FlareGhoulHit"]]
 texture = ExtResource("9_r657h")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="FG_hitbox" unique_id=752714640]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FG_hitbox" unique_id=752714640 groups=["FlareGhoulHit"]]
 position = Vector2(-2, -3)
 shape = SubResource("CircleShape2D_wb86m")
 
@@ -141,5 +151,6 @@ position = Vector2(4, -1)
 shape = SubResource("CircleShape2D_6o8cr")
 
 [connection signal="area_entered" from="Node2D/Daven/PickupArea" to="Node2D/Daven" method="_on_pickup_area_area_entered"]
+[connection signal="area_entered" from="FG_hitbox" to="Node2D/Daven" method="_on_fg_hitbox_area_entered"]
 [connection signal="area_entered" from="SpeedPckp" to="Node2D/Daven" method="_on_speed_pckp_area_entered"]
 [connection signal="area_entered" from="SpikePckp" to="Node2D/Daven" method="_on_spike_pckp_area_entered"]

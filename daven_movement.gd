@@ -4,6 +4,10 @@ extends CharacterBody2D
 
 @export var speed: float = 300.0
 var direction: Vector2 = Vector2.ZERO
+var speedpwp_inc = 100
+
+var ghoul_dmg = 20
+var daven_health = 100
 
 func _process(delta: float) -> void:
 	# Update the stored direction whenever an arrow key is pressed
@@ -24,8 +28,18 @@ func _process(delta: float) -> void:
 	move_and_slide()
 
 func _on_pickup_area_area_entered(area: Area2D) -> void:
+	if daven_health == 0:
+			get_tree().quit()
+			
 	if area.is_in_group("SpeedPwp"):
 		area.queue_free()
+		speed = speed + speedpwp_inc
 	
 	if area.is_in_group("SpikePwp"):
 		area.queue_free()
+		
+	if area.is_in_group("FlareGhoulHit"):
+		daven_health = daven_health - ghoul_dmg
+		$CanvasLayer/HealthBar.text = "Health: " + str(daven_health)
+		if daven_health == 0:
+			get_tree().quit()
