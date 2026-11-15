@@ -7,7 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://bo4erw3l6jbii" path="res://daven2.png" id="5_wt6go"]
 [ext_resource type="Texture2D" uid="uid://cfkbf1hdjvhwx" path="res://daven3.png" id="6_436f3"]
 [ext_resource type="Texture2D" uid="uid://bfqqdhli2ko5j" path="res://daven4.png" id="7_bcos8"]
-[ext_resource type="Texture2D" uid="uid://bumrp4eafo1ed" path="res://boing0.png" id="8_l6pdb"]
+[ext_resource type="Texture2D" uid="uid://b3cyowbbxpjnc" path="res://boing0.png" id="8_l6pdb"]
 [ext_resource type="Texture2D" uid="uid://chvh06tgvqs87" path="res://FlareGhoul.png" id="9_r657h"]
 [ext_resource type="Texture2D" uid="uid://bdhrpn3x878an" path="res://SpeedPwp.png" id="10_jfkdj"]
 [ext_resource type="Texture2D" uid="uid://jx6y03j4jsdk" path="res://SpikePowerup.png" id="11_wt6go"]
@@ -52,25 +52,23 @@ _data = {
 &"daven_smush_horizontal": SubResource("Animation_aeaoo")
 }
 
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_jfkdj"]
+
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_r657h"]
 texture = ExtResource("8_l6pdb")
-texture_region_size = Vector2i(64, 64)
+texture_region_size = Vector2i(64, 72)
 0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-26.28661, -36.01391, -25.994831, 36.03998, -19.732979, 35.66295, -19.401857, -36.095867)
 1:0/0 = 0
+1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-26.28661, -36.01391, -25.994831, 36.03998, -19.732979, 35.66295, -19.401857, -36.095867)
 1:1/0 = 0
 0:1/0 = 0
 
 [sub_resource type="TileSet" id="TileSet_21vjd"]
 tile_size = Vector2i(64, 64)
+physics_layer_0/collision_layer = 1
+physics_layer_0/physics_material = SubResource("PhysicsMaterial_jfkdj")
 sources/4 = SubResource("TileSetAtlasSource_r657h")
-
-[sub_resource type="Animation" id="Animation_oaeeq"]
-resource_name = "wall_bounce"
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_ey15c"]
-_data = {
-&"wall_bounce": SubResource("Animation_oaeeq")
-}
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_wb86m"]
 radius = 18.027756
@@ -84,7 +82,7 @@ radius = 14.142136
 [node name="Node" type="Node" unique_id=214869745]
 
 [node name="Node2D" type="Node2D" parent="." unique_id=167305889]
-position = Vector2(4, 6)
+position = Vector2(60, 194)
 
 [node name="Daven" type="CharacterBody2D" parent="Node2D" unique_id=1610242081]
 script = ExtResource("1_l6pdb")
@@ -112,16 +110,14 @@ text = "Health: 100
 "
 
 [node name="TileMapLayer" type="TileMapLayer" parent="Node2D" unique_id=614246636]
-tile_map_data = PackedByteArray("AAD+////AQAAAAAAAAD+/wAAAQAAAAAAAAD5////BAAAAAAAAAD5/wAABAAAAAEAAAD6////BAABAAAAAAD6/wAABAABAAEAAAD5/wEABAAAAAEAAAD6/wEABAABAAEAAAA=")
+position = Vector2(329, 0)
+tile_map_data = PackedByteArray("AAD+////AQAAAAAAAAD+/wAAAQAAAAAAAAD5////BAAAAAAAAAD5/wAABAAAAAAAAAD6////BAABAAAAAAD6/wAABAABAAAAAAD5/wEABAAAAAAAAAD6/wEABAABAAAAAAD5//7/BAAAAAAAAAD6//7/BAABAAAAAAD5/wIABAAAAAAAAAD6/wIABAABAAAAAAD5//3/BAAAAAAAAAD6//3/BAABAAAAAAABAP//BAAAAAAAAAACAP//BAABAAAAAAABAP7/BAAAAAAAAAACAP7/BAABAAAAAAABAAAABAAAAAAAAAACAAAABAABAAAAAAABAAEABAAAAAAAAAACAAEABAABAAAAAAABAAIABAAAAAAAAAACAAIABAABAAAAAAABAP3/BAAAAAAAAAACAP3/BAABAAAAAAD6/wMABAABAAAAAAD8////BAABAAAAAAA=")
 tile_set = SubResource("TileSet_21vjd")
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Node2D/TileMapLayer" unique_id=862432590]
-libraries/ = SubResource("AnimationLibrary_ey15c")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/TileMapLayer" unique_id=1501635378]
 
 [node name="FG_hitbox" type="Area2D" parent="." unique_id=1894901569 groups=["FlareGhoulHit"]]
-position = Vector2(246, 265)
+position = Vector2(302, 453)
 
 [node name="FlareGhoul" type="Sprite2D" parent="FG_hitbox" unique_id=741381312 groups=["FlareGhoulHit"]]
 texture = ExtResource("9_r657h")
@@ -131,7 +127,7 @@ position = Vector2(-2, -3)
 shape = SubResource("CircleShape2D_wb86m")
 
 [node name="SpeedPckp" type="Area2D" parent="." unique_id=1541992840 groups=["SpeedPwp"]]
-position = Vector2(72, 368)
+position = Vector2(128, 556)
 
 [node name="SpeedPwp" type="Sprite2D" parent="SpeedPckp" unique_id=1158961216 groups=["SpeedPwp"]]
 texture = ExtResource("10_jfkdj")
@@ -141,7 +137,7 @@ position = Vector2(-7, 0)
 shape = SubResource("RectangleShape2D_wb86m")
 
 [node name="SpikePckp" type="Area2D" parent="." unique_id=420967849 groups=["SpikePwp"]]
-position = Vector2(305, 156)
+position = Vector2(361, 344)
 
 [node name="SpikePwp" type="Sprite2D" parent="SpikePckp" unique_id=1417189710 groups=["SpikePwp"]]
 texture = ExtResource("11_wt6go")
