@@ -122,11 +122,76 @@ position = Vector2(242, 259)
 script = ExtResource("9_436f3")
 
 [node name="FlareGhoul" type="Sprite2D" parent="Node2D/FG_hitbox" unique_id=741381312 groups=["FlareGhoulHit"]]
+position = Vector2(3, -283)
 texture = ExtResource("9_r657h")
 script = ExtResource("10_wt6go")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/FG_hitbox" unique_id=752714640 groups=["FlareGhoulHit"]]
+position = Vector2(2, -289)
+shape = SubResource("CircleShape2D_wb86m")
+
+[node name="FG_hitbox2" type="Area2D" parent="Node2D" unique_id=725972735 groups=["FlareGhoulHit"]]
+position = Vector2(242, 259)
+script = ExtResource("9_436f3")
+
+[node name="FlareGhoul" type="Sprite2D" parent="Node2D/FG_hitbox2" unique_id=1360680203 groups=["FlareGhoulHit"]]
+position = Vector2(176, 98)
+texture = ExtResource("9_r657h")
+script = ExtResource("10_wt6go")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/FG_hitbox2" unique_id=907700151 groups=["FlareGhoulHit"]]
+position = Vector2(173, 91)
+shape = SubResource("CircleShape2D_wb86m")
+
+[node name="FG_hitbox3" type="Area2D" parent="Node2D" unique_id=16129298 groups=["FlareGhoulHit"]]
+position = Vector2(200, 240)
+script = ExtResource("9_436f3")
+
+[node name="FlareGhoul" type="Sprite2D" parent="Node2D/FG_hitbox3" unique_id=1928873369 groups=["FlareGhoulHit"]]
+position = Vector2(-87, 50)
+texture = ExtResource("9_r657h")
+script = ExtResource("10_wt6go")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/FG_hitbox3" unique_id=1015858616 groups=["FlareGhoulHit"]]
+position = Vector2(-83, 47)
+shape = SubResource("CircleShape2D_wb86m")
+
+[node name="FG_hitbox4" type="Area2D" parent="Node2D" unique_id=535295023 groups=["FlareGhoulHit"]]
+position = Vector2(242, 259)
+script = ExtResource("9_436f3")
+
+[node name="FlareGhoul" type="Sprite2D" parent="Node2D/FG_hitbox4" unique_id=330027173 groups=["FlareGhoulHit"]]
+texture = ExtResource("9_r657h")
+script = ExtResource("10_wt6go")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/FG_hitbox4" unique_id=732502929 groups=["FlareGhoulHit"]]
 position = Vector2(-2, -3)
+shape = SubResource("CircleShape2D_wb86m")
+
+[node name="FG_hitbox5" type="Area2D" parent="Node2D" unique_id=893964387 groups=["FlareGhoulHit"]]
+position = Vector2(242, 259)
+script = ExtResource("9_436f3")
+
+[node name="FlareGhoul" type="Sprite2D" parent="Node2D/FG_hitbox5" unique_id=1286003148 groups=["FlareGhoulHit"]]
+position = Vector2(451, 135)
+texture = ExtResource("9_r657h")
+script = ExtResource("10_wt6go")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/FG_hitbox5" unique_id=486207907 groups=["FlareGhoulHit"]]
+position = Vector2(448, 128)
+shape = SubResource("CircleShape2D_wb86m")
+
+[node name="FG_hitbox6" type="Area2D" parent="Node2D" unique_id=1400902828 groups=["FlareGhoulHit"]]
+position = Vector2(242, 259)
+script = ExtResource("9_436f3")
+
+[node name="FlareGhoul" type="Sprite2D" parent="Node2D/FG_hitbox6" unique_id=1523646747 groups=["FlareGhoulHit"]]
+position = Vector2(306, -96)
+texture = ExtResource("9_r657h")
+script = ExtResource("10_wt6go")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/FG_hitbox6" unique_id=1487912572 groups=["FlareGhoulHit"]]
+position = Vector2(306, -102)
 shape = SubResource("CircleShape2D_wb86m")
 
 [node name="SpeedPckp" type="Area2D" parent="Node2D" unique_id=1541992840 groups=["SpeedPwp"]]
@@ -150,6 +215,39 @@ texture = ExtResource("11_wt6go")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/SpikePckp" unique_id=1781395365 groups=["SpikePwp"]]
 position = Vector2(18, -100)
 shape = SubResource("CircleShape2D_6o8cr")
+
+[node name="SpeedPckp2" type="Area2D" parent="Node2D" unique_id=406907028 groups=["SpeedPwp"]]
+position = Vector2(68, 362)
+
+[node name="SpeedPwp" type="Sprite2D" parent="Node2D/SpeedPckp2" unique_id=2114294557 groups=["SpeedPwp"]]
+position = Vector2(597, -261)
+texture = ExtResource("10_jfkdj")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/SpeedPckp2" unique_id=873866456 groups=["SpeedPwp"]]
+position = Vector2(587, -265)
+shape = SubResource("RectangleShape2D_wb86m")
+
+[node name="SpeedPckp3" type="Area2D" parent="Node2D" unique_id=1211417440 groups=["SpeedPwp"]]
+position = Vector2(68, 362)
+
+[node name="SpeedPwp" type="Sprite2D" parent="Node2D/SpeedPckp3" unique_id=1706903661 groups=["SpeedPwp"]]
+position = Vector2(357, -477)
+texture = ExtResource("10_jfkdj")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/SpeedPckp3" unique_id=1411602765 groups=["SpeedPwp"]]
+position = Vector2(351, -480)
+shape = SubResource("RectangleShape2D_wb86m")
+
+[node name="SpeedPckp4" type="Area2D" parent="Node2D" unique_id=112376946 groups=["SpeedPwp"]]
+position = Vector2(68, 362)
+
+[node name="SpeedPwp" type="Sprite2D" parent="Node2D/SpeedPckp4" unique_id=1981395910 groups=["SpeedPwp"]]
+position = Vector2(86, -246)
+texture = ExtResource("10_jfkdj")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/SpeedPckp4" unique_id=1574258506 groups=["SpeedPwp"]]
+position = Vector2(75, -250)
+shape = SubResource("RectangleShape2D_wb86m")
 
 [connection signal="area_entered" from="Node2D/Daven/PickupArea" to="Node2D/Daven" method="_on_pickup_area_area_entered"]
 [connection signal="body_entered" from="Node2D/Daven/PickupArea" to="Node2D/Daven" method="_on_pickup_area_body_entered"]
