@@ -24,3 +24,8 @@ func _process(delta: float) -> void:
 	move_and_slide()
 
 func _on_pickup_area_area_entered(area: Area2D) -> void:
+	if area.is_in_group("SpeedPwp"):
+		area.queue_free()
+	
+	if area.is_in_group("SpikePwp"):
+		area.queue_free()
