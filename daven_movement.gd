@@ -10,6 +10,8 @@ var ghoul_dmg = 20
 var daven_health = 100
 
 func _process(delta: float) -> void:
+	sprite.rotation += 10 * delta
+func _physics_process(delta: float) -> void:
 	# Update the stored direction whenever an arrow key is pressed
 	if Input.is_action_just_pressed("ui_right"):
 		direction = Vector2.RIGHT
@@ -21,9 +23,7 @@ func _process(delta: float) -> void:
 		direction = Vector2.DOWN
 
 	# Continuously move in the stored direction every frame
-	position += direction * speed * delta
-	
-	sprite.rotation += 10 * delta
+	velocity = direction * speed
 		
 	move_and_slide()
 	
@@ -44,3 +44,9 @@ func _on_pickup_area_area_entered(area: Area2D) -> void:
 		$CanvasLayer/HealthBar.text = "Health: " + str(daven_health)
 		if daven_health == 0:
 			get_tree().quit()
+
+
+func _on_pickup_area_body_entered(body: Node2D) -> void:
+	if body is TileMapLayer:
+		print("Hit a wall!")
+		direction = -direction
